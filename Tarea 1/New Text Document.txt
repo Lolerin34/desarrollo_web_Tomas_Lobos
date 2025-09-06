@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>¡Encuentrale un hogar!</title>
+    <link rel="stylesheet" type="text/css" href="../css/Fp_formulario.css">
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="navbar">
+        <img id="logo" src="../Fundacion_patitas.svg" alt="Logo Fundación patitas"/>
+        <h1>Fundación patitas</h1>
+        <button type="button" id="Pagina_principal_btn">
+            Pagina principal
+        </button>
+        <button type="button" id="Agregar_aviso_btn">
+            Agregar aviso de adopción
+        </button>
+        <button type="button" id="Ver_listado_btn">
+            Ver listado de adopciones
+        </button>
+        <button type="button" id="Estadisticas_btn">
+            Estadísticas
+        </button>
+    </div>
+    <!--Formularios-->
+    <div class="main-container">
+      <!--Formulario lugar-->
+      <form class="formulario" id="formulario_lugar">
+        <h1>Lugar de entrega</h1> 
+          <label for="region">Región</label>
+            <input id="region" name="region" type="text" required> 
+
+          <label for="comuna">Comuna</label>
+            <input id="comuna" name="comuna" type="text" required>
+
+          <label for="sector">Sector</label>
+            <input id="sector" name="sector" type="text" maxlength="100">
+      
+      <!--Formulario contacto-->
+      <form class="formulario" id="formulario_contacto">
+        <h1>Contacto</h1> 
+          <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" minlength="3" maxlength="200" required>
+
+          <label for="email">Email</label>
+            <input id="email" name="email" type="email" type required> 
+
+          <label for="numero">Número de celular</label>
+            <input id="numero" name="numero" type="text">
+
+            <label for="contactar_por">Contactar por</label>
+              <select name="contactar_por" id="contactar_por" required>
+                  <option value="">Seleccione un método de contacto</option>
+              </select><br>
+
+      <!--Formulario mascota-->
+      <form class="formulario" id="formulario_mascota">
+        <h1>Mascota</h1>
+
+            <label for="tipo">Tipo</label>
+              <select name="tipo" id="tipo" required>
+                  <option value="">Perro/gato</option>
+              </select><br>
+
+          <label for="cantidad">Cantidad</label>
+            <input id="cantidad" name="cantidad" type="number" min="1" required>
+
+          <label for="edad">Edad</label>
+            <input id="edad" name="edad" type="number" min="1" required> 
+
+            <label for="unidad">Unidad</label>
+              <select name="unidad" id="unidad" required>
+                  <option value="">años/meses</option>
+              </select><br> 
+
+            <label for="fecha_disponible">Fecha disponible para entrega</label>
+              <input type="datetime-local" id="fecha_disponible" name="fecha_disponible" required>
+
+          <label for="descripcion">Descripción</label>
+           <textarea id="descripcion" name="descripcion" type="text" cols="50" rows="10"> </textarea>
+
+          <label for="foto">Foto</label>
+           <input id="foto" name="foto" type="file" min="1" max="5">   
+
+          <button type="button" id="envio">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+    </div>
+    <!-- Codigo formulario-->
+    <script lang="javascript" src="../js/Fp_formulario.js"></script>
+    <!-- Codigo barra de navegacion botones-->
+     <script lang="javascript" src="../js/Fp_navbar.js"></script>
+  </body>
+</html>

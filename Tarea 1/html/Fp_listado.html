@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Fundación patitas – Listado de Avisos</title>
+  <link rel="stylesheet" href="../css/Fp_listado.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- navbar -->
+  <div class="navbar">
+    <img id="logo" src="../Fundacion_patitas.svg" alt="Logo Fundación patitas">
+    <h1>Fundación patitas</h1>
+    <button type="button" id="Pagina_principal_btn">Pagina principal</button>
+    <button type="button" id="Agregar_aviso_btn">Agregar aviso de adopción</button>
+    <button type="button" id="Ver_listado_btn" class="active">Ver listado de adopciones</button>
+    <button type="button" id="Estadisticas_btn">Estadísticas</button>
+  </div>
+
+  <main class="container">
+    <h2>Listado de Avisos de Adopción</h2>
+
+    <!-- LISTA -->
+    <section id="lista-section" aria-label="Listado de avisos">
+      <table id="tabla-avisos">
+        <caption class="sr-only">Tabla con los avisos de adopción</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha Publicación</th>
+            <th scope="col">Fecha Entrega</th>
+            <th scope="col">Comuna</th>
+            <th scope="col">Sector</th>
+            <th scope="col">Cantidad / tipo / edad</th>
+            <th scope="col">Nombre Contacto</th>
+            <th scope="col">Total fotos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Fila 1 (Santiago, gatos) -->
+          <tr class="fila-aviso" data-id="1">
+            <td>2025-08-18 12:00</td>
+            <td>2025-08-23 12:00</td>
+            <td>Santiago</td>
+            <td>Beauchef 850, terraza</td>
+            <td>3 gatos 1 año</td>
+            <td>Javier Malhue</td>
+            <td>1</td>
+          </tr>
+          <!-- Fila 2 (Macul, perro) -->
+          <tr class="fila-aviso" data-id="2">
+            <td>2025-03-02 13:51</td>
+            <td>2025-03-08 12:00</td>
+            <td>Macul</td>
+            <td>Condominio las flores</td>
+            <td>1 perro 2 meses</td>
+            <td>Nicolas Rey</td>
+            <td>1</td>
+          </tr>
+          <!-- Fila 3 (Osorno, gato) -->
+          <tr class="fila-aviso" data-id="3">
+            <td>2025-01-01 12:30</td>
+            <td>2025-01-18 12:00</td>
+            <td>Osorno</td>
+            <td>Al lado del lago</td>
+            <td>1 gato 1 años</td>
+            <td>Javiera Farias</td>
+            <td>1</td>
+          </tr>
+          <!-- Fila 4 (Pucón, perros) -->
+          <tr class="fila-aviso" data-id="4">
+            <td>2025-04-21 14:30</td>
+            <td>2025-04-29 12:00</td>
+            <td>Pucón</td>
+            <td>Plaza central</td>
+            <td>6 perros 2 meses</td>
+            <td>Nicole Valenzuela</td>
+            <td>1</td>
+          </tr>
+          <!-- Fila 5 (Viña del mar, gatos) -->
+          <tr class="fila-aviso" data-id="5">
+            <td>2025-07-01 11:30</td>
+            <td>2025-07-06 12:00</td>
+            <td>Viña del mar</td>
+            <td>Plaza vergara</td>
+            <td>2 gatos 2 años y 3 meses</td>
+            <td>Luis Ignacio</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+      <small class="hint">Haz clic en una fila para ver el detalle del aviso.</small>
+    </section>
+
+    <!-- DETALLE -->
+    <section id="detalle-section" aria-label="Detalle del aviso" hidden>
+      <h3>Detalle del Aviso</h3>
+
+      <div class="detalle-grid">
+        <div><span class="lbl">Fecha Publicación:</span> <span id="d-fecha-publicacion"></span></div>
+        <div><span class="lbl">Fecha Entrega:</span> <span id="d-fecha-entrega"></span></div>
+        <div><span class="lbl">Comuna:</span> <span id="d-comuna"></span></div>
+        <div><span class="lbl">Sector:</span> <span id="d-sector"></span></div>
+        <div><span class="lbl">Cantidad / tipo / edad:</span> <span id="d-cte"></span></div>
+        <div><span class="lbl">Nombre Contacto:</span> <span id="d-contacto"></span></div>
+      </div>
+
+      <h4>Fotos</h4>
+      <div id="galeria" class="galeria" aria-live="polite">
+        <!-- Se llena por JS con imágenes 320x240 -->
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="btn-volver-lista">Volver al listado</button>
+        <button type="button" id="btn-volver-portada">Volver a la portada</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL para ver foto 800x600 -->
+  <div id="modal" class="modal" hidden aria-hidden="true" role="dialog" aria-label="Visor de foto">
+    <div class="modal-content">
+      <button type="button" class="cerrar" id="modal-cerrar" aria-label="Cerrar">×</button>
+      <img id="modal-img" alt="Foto ampliada">
+    </div>
+  </div>
+
+  <!-- JS navegación + listado -->
+  <script src="../js/Fp_navbar.js"></script>
+  <script src="../js/Fp_listado.js"></script>
+</body>
+</html>
