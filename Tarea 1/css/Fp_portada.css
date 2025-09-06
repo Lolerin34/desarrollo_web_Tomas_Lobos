@@ -1,0 +1,70 @@
+/*Barra de navegacion*/
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navbar #logo{
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+
+.navbar h1 {
+    font-family: "Fira Code", monospace;
+    margin: .5em;
+    margin-right: auto;
+}
+
+.navbar button{
+  width: 200px;
+  height: 50px;
+  font-family:'Comic-Sans';
+  font-size: 20px;
+}
+
+/* Contenedor visual */
+#anounce_list{
+  border: 1px solid #5a5a5a;
+  border-radius: 8px;
+  overflow: clip;
+  margin-top: 8px;
+  font-family: Roboto, system-ui, sans-serif;
+  width: 1400px;
+}
+
+/* Cada FILA (encabezado y avisos) usa la misma cuadrícula de 5 columnas */
+#anounce_list .header,
+#anounce_list .anounce_container{
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr 1fr 1fr;
+  width: 1400px;
+}
+
+/* Se restringe el tamaño de las imagenes para que quepan en la cuadricula*/
+#anounce_list .Foto img{
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+}
+
+/* Celdas */
+#anounce_list .header > div,
+#anounce_list .anounce_container > div{
+  padding: 10px 12px;
+  border-right: 1px solid #797979;
+  border-bottom: 1px solid #797979;
+  display: flex;
+  align-items: center;
+  min-height: 44px; 
+} 
+
+/* Encabezados de la cuadricula*/
+#anounce_list .header > div{
+  font-weight: 700;
+  background: #c9c9c9;  
+  border-bottom: 1px solid #eee;
+} 
