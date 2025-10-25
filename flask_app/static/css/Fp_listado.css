@@ -1,0 +1,142 @@
+/*Barra de navegacion*/
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navbar #logo{
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+
+.navbar h1 {
+    font-family: "Fira Code", monospace;
+    margin: .5em;
+    margin-right: auto;
+}
+
+.navbar button{
+  width: 200px;
+  height: 50px;
+  font-family:'Comic-Sans';
+  font-size: 20px;
+}
+
+/* Sección lista */
+#lista-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+th, td {
+  border: 1px solid #888;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #c9c9c9;
+}
+
+.fila-aviso {
+  cursor: pointer;
+}
+
+.fila-aviso:hover {
+  background-color: #f3f3f3;
+}
+
+.paginacion {
+  margin: 10px;
+}
+
+/* Detalle */
+#detalle-section {
+  margin: 20px auto;
+  width: 90%;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: Roboto, sans-serif;
+  background-color: #fff;
+}
+
+.detalle-info p {
+  margin: 6px 0;
+}
+
+/* Galería */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.galeria img.miniatura {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #999;
+}
+
+/* Modal */
+.modal[hidden] {
+  display: none !important;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #444;
+}
+
+#modal-img {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+#modal-cerrar {
+  display: block;
+  margin: 8px auto 0 auto;
+  background-color: #ddd;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Botones volver */
+.acciones {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.acciones button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border: 1px solid #333;
+  background: #eaeaea;
+  cursor: pointer;
+}

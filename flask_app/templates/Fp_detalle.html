@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Detalle de aviso - Fundación Patitas</title>
+  <link rel="stylesheet" href="/static/css/Fp_detalle.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <img id="logo" src="/static/img/Fundacion_patitas.svg" alt="Logo Fundación Patitas">
+    <h1>Fundación Patitas</h1>
+    <button type="button" id="Pagina_principal_btn">Página principal</button>
+    <button type="button" id="Agregar_aviso_btn" class="active">Agregar aviso</button>
+    <button type="button" id="Ver_listado_btn">Listado</button>
+    <button type="button" id="Estadisticas_btn">Estadísticas</button>
+  </div>
+
+  <main class="container">
+    <h2>Detalle del aviso</h2>
+
+    <section class="datos">
+      <div><b>Publicación:</b> {{ aviso.fecha_ingreso }}</div>
+      <div><b>Entrega:</b> {{ aviso.fecha_entrega }}</div>
+      <div><b>Región:</b> {{ aviso.region }}</div>
+      <div><b>Comuna:</b> {{ aviso.comuna }}</div>
+      <div><b>Sector:</b> {{ aviso.sector }}</div>
+      <div><b>Descripción:</b> {{ aviso.descripcion }}</div>
+      <div><b>Cantidad/tipo/edad:</b> {{ aviso.cantidad }} {{ aviso.tipo }} {{ aviso.edad }} {{ aviso.unidad_medida }}</div>
+    </section>
+
+    <section class="fotos">
+      <h3>Fotos</h3>
+      <div class="galeria">
+        {% for f in fotos %}
+          <img src="{{ url_for('static', filename=f[1]) }}" alt="Foto de adopción">
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="contactos">
+      <h3>Contacto</h3>
+      <ul>
+        {% for c in contactos %}
+          <li>{{ c[1] }}: {{ c[2] }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section id="comentarios">
+      <h3>Comentarios</h3>
+      <div id="lista-comentarios">Cargando comentarios...</div>
+
+      <form id="form-comentario">
+        <label>Nombre (3–80):
+          <input id="nombre-com" maxlength="80" required>
+        </label>
+        <label>Comentario (≥5, ≤300):
+          <textarea id="texto-com" rows="4" cols="50" maxlength="300" required></textarea>
+        </label>
+        <button type="submit">Agregar comentario</button>
+      </form>
+    </section>
+
+    <p><a href="{{ url_for('listado') }}">Volver al listado</a> · <a href="{{ url_for('index') }}">Volver a la portada</a></p>
+  </main>
+
+  <script>
+    window.__AVISO_ID__ = {{ aviso.id }};
+  </script>
+  <script src="{{ url_for('static', filename='js/Fp_detalle.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/Fp_navbar.js') }}"></script>
+</body>
+</html>

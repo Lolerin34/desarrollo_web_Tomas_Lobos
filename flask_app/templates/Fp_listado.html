@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado de Adopciones — Fundación Patitas</title>
+  <link rel="stylesheet" href="/static/css/Fp_listado.css">
+</head>
+<body>
+  <div class="navbar">
+    <img id="logo" src="{{ url_for('static', filename='img/Fundacion_patitas.svg') }}" alt="Logo Fundación Patitas">
+    <h1>Fundación Patitas</h1>
+    <button type="button" id="Pagina_principal_btn">Página principal</button>
+    <button type="button" id="Agregar_aviso_btn">Agregar aviso</button>
+    <button type="button" id="Ver_listado_btn" class="active">Listado</button>
+    <button type="button" id="Estadisticas_btn">Estadísticas</button>
+  </div>
+
+  <!-- Lista -->
+  <section id="lista-section">
+    <h2>Listado de Avisos de Adopción</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha Publicación</th>
+          <th>Fecha Entrega</th>
+          <th>Comuna</th>
+          <th>Sector</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for aviso in avisos %}
+          <tr class="fila-aviso" data-id="{{ aviso.id }}">
+            <td>{{ aviso.fecha_publicacion }}</td>
+            <td>{{ aviso.fecha_entrega }}</td>
+            <td>{{ aviso.comuna }}</td>
+            <td>{{ aviso.sector }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="paginacion">
+      {% if hay_prev %}
+        <a href="{{ url_for('listado', pagina=pagina-1) }}">Anterior</a>
+      {% endif %}
+      Página {{ pagina }} de {{ total_paginas }}
+      {% if hay_next %}
+        <a href="{{ url_for('listado', pagina=pagina+1) }}">Siguiente</a>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Detalle (oculta hasta que se elija un aviso) -->
+  <section id="detalle-section" hidden>
+    <h2>Detalle del Aviso</h2>
+
+    <div class="detalle-info">
+      <p><b>Fecha publicación:</b> <span id="d-fecha-publicacion"></span></p>
+      <p><b>Fecha entrega:</b> <span id="d-fecha-entrega"></span></p>
+      <p><b>Comuna:</b> <span id="d-comuna"></span></p>
+      <p><b>Sector:</b> <span id="d-sector"></span></p>
+      <p><b>Cantidad/tipo/edad:</b> <span id="d-cte"></span></p>
+      <p><b>Contacto:</b> <span id="d-contacto"></span></p>
+    </div>
+
+    <div id="galeria" class="galeria"></div>
+
+    <div class="acciones">
+      <button id="btn-volver-lista">Volver al listado</button>
+      <button id="btn-volver-portada">Volver a la portada</button>
+    </div>
+  </section>
+
+  <!-- Fotos -->
+  <div id="modal" class="modal" hidden aria-hidden="true">
+    <div class="modal-contenido">
+      <img id="modal-img" src="" alt="Foto ampliada">
+      <button id="modal-cerrar">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/Fp_navbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/Fp_listado.js') }}"></script>
+</body>
+</html>

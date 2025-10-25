@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agregar aviso - Fundación Patitas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Fp_formulario.css') }}">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <img id="logo" src="{{ url_for('static', filename='img/Fundacion_patitas.svg') }}" alt="Logo Fundación Patitas">
+    <h1>Fundación Patitas</h1>
+    <button type="button" id="Pagina_principal_btn">Página principal</button>
+    <button type="button" id="Agregar_aviso_btn">Agregar aviso</button>
+    <button type="button" id="Ver_listado_btn">Listado</button>
+    <button type="button" id="Estadisticas_btn">Estadísticas</button>
+  </div>
+
+  <main>
+    <div class="main-container">
+      <form id="form-aviso" class="formulario" method="POST"
+            action="{{ url_for('add_aviso') }}" enctype="multipart/form-data">
+        
+        <h2>¿Dónde?</h2>
+        <label for="region">Región</label>
+        <select id="region" name="region" required>
+          <option value="">Seleccione una región</option>
+          {% for id, nombre in regiones %}
+          <option value="{{ id }}">{{ nombre }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="comuna">Comuna</label>
+        <select id="comuna" name="comuna" required disabled>
+          <option value="">Seleccione una comuna</option>
+        </select>
+
+        <label for="sector">Sector (opcional)</label>
+        <input id="sector" name="sector" type="text" maxlength="100">
+
+        <h2>¿Contacto?</h2>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" minlength="3" maxlength="200" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" maxlength="100" required>
+
+        <label for="numero">Número de celular (opcional)</label>
+        <input id="numero" name="numero" type="tel" placeholder="+569.12345678">
+
+        <fieldset class="contactar-por">
+          <legend>Contactar por (opcional)</legend>
+          {% for medio in ['whatsapp','telegram','x','instagram','tiktok','otra'] %}
+          <div class="contact-method">
+            <input type="checkbox" id="{{ medio }}" value="{{ medio }}">
+            <label for="{{ medio }}">{{ medio.capitalize() }}</label>
+            <input type="text" class="contact-id" name="{{ medio }}" placeholder="ID o URL" hidden>
+          </div>
+          {% endfor %}
+        </fieldset>
+
+        <h2>¿Qué mascota ofrece en adopción?</h2>
+        <label for="tipo">Tipo</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione tipo</option>
+          <option value="gato">Gato</option>
+          <option value="perro">Perro</option>
+        </select>
+
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" name="cantidad" type="number" min="1" required>
+
+        <label for="edad">Edad</label>
+        <input id="edad" name="edad" type="number" min="1" required>
+
+        <label for="unidad">Unidad</label>
+        <select id="unidad" name="unidad" required>
+          <option value="">Seleccione unidad</option>
+          <option value="m">Meses</option>
+          <option value="a">Años</option>
+        </select>
+
+        <label for="fecha">Fecha de entrega</label>
+        <input type="datetime-local" id="fecha" name="fecha" required>
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" cols="50" rows="6"></textarea>
+
+        <div class="fotos">
+          <label>Fotos</label>
+          {% for i in range(1,6) %}
+          <input type="file" name="foto_{{ i }}" id="foto_{{ i }}" accept="image/*" {% if i > 1 %}hidden{% endif %}>
+          {% endfor %}
+          <small>Mínimo 1, máximo 5.</small>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn">Agregar este aviso</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='js/Fp_navbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/Fp_formulario.js') }}"></script>
+</body>
+</html>
