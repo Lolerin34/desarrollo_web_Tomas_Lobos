@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Fundación Patitas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Fp_portada.css') }}">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <img id="logo" src="/static/img/Fundacion_patitas.svg" alt="Logo Fundación Patitas">
+    <h1>Fundación Patitas</h1>
+    <button type="button" id="Pagina_principal_btn">Página principal</button>
+    <button type="button" id="Agregar_aviso_btn" class="active">Agregar aviso</button>
+    <button type="button" id="Ver_listado_btn">Listado</button>
+    <button type="button" id="Estadisticas_btn">Estadísticas</button>
+  </div>
+
+  <!-- Portada -->
+  <main class="main-container">
+    <section class="anuncio">
+      <h2>¡Últimos avisos!</h2>
+    </section>
+
+    <section id="anounce_list" aria-label="Listado de últimos avisos">
+      <div class="header">
+        <div class="Fecha"><p>Fecha</p></div>
+        <div class="Comuna"><p>Comuna</p></div>
+        <div class="sector"><p>Sector</p></div>
+        <div class="cantidad_tipo_edad"><p>Cantidad / tipo / edad</p></div>
+        <div class="Foto"><p>Foto</p></div>
+      </div>
+
+      {% for aviso in ultimos %}
+      <div class="anounce_container">
+        <div class="Fecha"><p>{{ aviso.fecha_hora }}</p></div>
+        <div class="Comuna"><p>{{ aviso.comuna_nombre }}</p></div>
+        <div class="sector"><p>{{ aviso.sector }}</p></div>
+        <div class="cantidad_tipo_edad">
+          <p>{{ aviso.cantidad }} {{ aviso.tipo }}{{ 's' if aviso.cantidad > 1 else '' }} {{ aviso.edad }} {{ 'años' if aviso.unidad_medida == 'a' else 'meses' }}</p>
+        </div>
+        <div class="Foto">
+          {% if aviso.foto_ruta %}
+            <img src="{{ url_for('static', filename=aviso.foto_ruta) }}" alt="Imagen de adopción">
+          {% else %}
+            <span>Sin imagen</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/Fp_navbar.js') }}"></script>
+</body>
+</html>

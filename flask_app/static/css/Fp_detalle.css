@@ -1,0 +1,141 @@
+/*Barra de navegacion*/
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navbar #logo{
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+
+.navbar h1 {
+    font-family: "Fira Code", monospace;
+    margin: .5em;
+    margin-right: auto;
+}
+
+.navbar button{
+  width: 200px;
+  height: 50px;
+  font-family:'Comic-Sans';
+  font-size: 20px;
+}
+/* Contenedor principal */
+main.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Datos del aviso */
+.datos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.datos div {
+  background: #f8f8f8;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* Galería */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.galeria img {
+  width: 180px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Contacto */
+.contactos ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+/* Comentarios */
+#comentarios {
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+#lista-comentarios {
+  margin: 10px 0 20px;
+}
+
+.comentario {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.fecha {
+  color: #777;
+  font-size: 0.9em;
+}
+
+/* Formulario de comentarios */
+#form-comentario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#form-comentario input,
+#form-comentario textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+#form-comentario button {
+  align-self: center;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Enlaces inferiores */
+main p {
+  text-align: center;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #0077b6;
+}
+
+a:hover {
+  text-decoration: underline;
+}
