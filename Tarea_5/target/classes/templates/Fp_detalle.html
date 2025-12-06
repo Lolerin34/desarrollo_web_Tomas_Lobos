@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Detalle de aviso - Fundación Patitas</title>
+  <link rel="stylesheet" href="/css/Fp_detalle.css" data-th-href="@{/css/Fp_detalle.css}">
+</head>
+<body>
+  <div class="navbar">
+    <img id="logo" src="/img/Fundacion_patitas.svg" data-th-src="@{/img/Fundacion_patitas.svg}" alt="Logo">
+    <h1>Fundación Patitas</h1>
+    <a href="/" data-th-href="@{/}" class="btn-nav">Página principal</a>
+    <a href="/listado" data-th-href="@{/listado}" class="btn-nav">Listado</a>
+  </div>
+
+  <main class="container" data-th-object="${aviso}">
+    <h2>Detalle del aviso</h2>
+
+    <section class="datos">
+      <div><b>Publicación:</b> <span data-th-text="*{fechaPublicacion}">Fecha</span></div>
+      <div><b>Entrega:</b> <span data-th-text="*{fechaEntrega}">Fecha</span></div>
+      <div><b>Comuna:</b> <span data-th-text="*{comuna}">Comuna</span></div>
+      <div><b>Sector:</b> <span data-th-text="*{sector}">Sector</span></div>
+      <div><b>Descripción:</b> <span data-th-text="*{descripcion}">Desc</span></div>
+      <div>
+          <b>Detalle:</b> 
+          <span data-th-text="|*{cantidad} *{tipo} de *{edad} *{unidadMedida}|">Detalle completo</span>
+      </div>
+    </section>
+
+    <p><a href="/listado" data-th-href="@{/listado}">Volver al listado</a></p>
+  </main>
+
+  <script src="/js/Fp_navbar.js" data-th-src="@{/js/Fp_navbar.js}"></script>
+</body>
+</html>

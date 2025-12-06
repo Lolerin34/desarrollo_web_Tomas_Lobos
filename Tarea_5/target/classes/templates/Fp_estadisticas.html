@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Estadísticas - Fundación Patitas</title>
+  <link rel="stylesheet" href="/css/Fp_estadisticas.css" data-th-href="@{/css/Fp_estadisticas.css}">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <img id="logo" src="/img/Fundacion_patitas.svg" data-th-src="@{/img/Fundacion_patitas.svg}" alt="Logo">
+    <h1>Fundación Patitas</h1>
+    <a href="/" data-th-href="@{/}" class="btn-nav">Página principal</a>
+    <a href="/listado" data-th-href="@{/listado}" class="btn-nav">Listado</a>
+    <a href="/estadisticas" data-th-href="@{/estadisticas}" class="btn-nav active">Estadísticas</a>
+  </div>
+
+  <main>
+    <h2>Estadísticas</h2>
+    <div id="contenedor-graficos">
+      <div id="lineChart" class="grafico"></div>
+      <div id="pieChart" class="grafico"></div>
+      <div id="barChart" class="grafico"></div>
+    </div>
+  </main>
+
+  <script src="/js/Fp_navbar.js" data-th-src="@{/js/Fp_navbar.js}"></script>
+  <script src="/js/Fp_estadisticas.js" data-th-src="@{/js/Fp_estadisticas.js}"></script>
+</body>
+</html>

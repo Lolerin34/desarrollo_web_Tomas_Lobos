@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administración - Fundación Patitas</title>
+    <link rel="stylesheet" href="/css/Fp_admin.css" data-th-href="@{/css/Fp_admin.css}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <img id="logo" src="/images/logo.png" data-th-src="@{/images/logo.png}" alt="Logo" onerror="this.style.display='none'"> 
+        <h1>Fundación Patitas - Admin</h1>
+        
+        <form action="/logout" data-th-action="@{/logout}" method="post">
+            <button type="submit">Salir</button>
+        </form>
+    </nav>
+
+    <div class="main-container">
+        
+        <div data-th-if="${param.error}" class="alert-error">
+            <strong>Error:</strong> El motivo ingresado no es válido. Debe tener entre 5 y 200 caracteres.
+        </div>
+
+        <div id="anounce_list">
+            
+            <div class="header">
+                <div>Foto</div>
+                <div>Fecha Ingreso</div>
+                <div>Comuna</div>
+                <div>Contacto (Email)</div>
+                <div>Acción</div>
+            </div>
+
+            <div data-th-each="foto : ${fotos}" class="anounce_container">
+                
+                <div class="Foto">
+                    <img src="/img/mascota_default.png" data-th-src="@{${foto.url}}" alt="Mascota" onerror="this.src='/img/mascota_default.png'">
+                </div>
+
+                <div data-th-text="${foto.aviso.fechaPublicacion}">Fecha</div>
+
+                <div data-th-text="${foto.aviso.comuna}">Comuna</div>
+
+                <div data-th-text="${foto.aviso.email}">Email</div>
+
+                <div>
+                    <div data-th-if="${foto.eliminada == 0}">
+                        <form action="/t5-admin-fotos/eliminar" data-th-action="@{/t5-admin-fotos/eliminar}" method="post" onsubmit="return solicitarMotivo(this)">
+                            <input type="hidden" name="idFoto" value="" data-th-value="${foto.id}">
+                            <input type="hidden" name="motivo" id="motivoInput">
+                            <button type="submit" class="btn-eliminar">Eliminar</button>
+                        </form>
+                    </div>
+
+                    <div data-th-if="${foto.eliminada == 1}">
+                        <span class="badge-eliminada">Eliminada</span>
+                    </div>
+                </div>
+
+            </div> </div> </div>
+
+    <script src="/js/Fp_admin.js" data-th-src="@{/js/Fp_admin.js}"></script>
+
+</body>
+</html>

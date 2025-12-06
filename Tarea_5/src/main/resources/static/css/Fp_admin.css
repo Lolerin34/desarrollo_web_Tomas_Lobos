@@ -1,0 +1,114 @@
+body {
+    font-family: Roboto, system-ui, sans-serif;
+    margin: 20px;
+}
+
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #5a5a5a;
+    padding-bottom: 10px;
+}
+
+.navbar #logo {
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+}
+
+.navbar h1 {
+    font-family: "Fira Code", monospace;
+    margin: .5em;
+    margin-right: auto;
+}
+
+.navbar button {
+    width: 200px;
+    height: 50px;
+    font-family: 'Comic-Sans', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#anounce_list {
+    border: 1px solid #5a5a5a;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+    font-family: Roboto, system-ui, sans-serif;
+    width: 100%;
+    max-width: 1400px;
+}
+
+#anounce_list .header,
+#anounce_list .anounce_container {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr; 
+    width: 100%;
+}
+
+#anounce_list .Foto img {
+    max-width: 180px;
+    max-height: 130px;
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+}
+
+#anounce_list .header > div,
+#anounce_list .anounce_container > div {
+    padding: 10px 12px;
+    border-right: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    word-break: break-word;
+}
+
+#anounce_list .header > div {
+    font-weight: 700;
+    background: #c9c9c9;
+    border-bottom: 1px solid #5a5a5a;
+}
+
+
+.btn-eliminar {
+    background-color: #d9534f;
+    color: white;
+    border: 1px solid #d43f3a;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-eliminar:hover {
+    background-color: #c9302c;
+}
+
+.badge-eliminada {
+    background-color: #777;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    max-width: 1400px;
+}

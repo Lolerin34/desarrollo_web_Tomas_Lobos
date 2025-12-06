@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Fundación Patitas</title>
+  <link rel="stylesheet" th:href="@{/css/Fp_portada.css}">
+</head>
+
+<body>
+  <div class="navbar">
+    <img id="logo" th:src="@{/img/Fundacion_patitas.svg}" alt="Logo Fundación Patitas">
+    <h1>Fundación Patitas</h1>
+    <a th:href="@{/}" class="btn-nav">Página principal</a>
+    <a th:href="@{/formulario}" class="btn-nav">Agregar aviso</a>
+    <a th:href="@{/listado}" class="btn-nav">Listado</a>
+    <a th:href="@{/estadisticas}" class="btn-nav">Estadísticas</a>
+  </div>
+
+  <main class="main-container">
+    <section class="anuncio">
+      <h2>¡Últimos avisos!</h2>
+    </section>
+
+    <section id="anounce_list" aria-label="Listado de últimos avisos">
+      <div class="header">
+        <div class="Fecha"><p>Fecha</p></div>
+        <div class="Comuna"><p>Comuna</p></div>
+        <div class="sector"><p>Sector</p></div>
+        <div class="cantidad_tipo_edad"><p>Descripción</p></div>
+        <div class="Foto"><p>Foto</p></div>
+      </div>
+
+<div class="anounce_container" th:each="aviso : ${ultimos}">
+    
+    <div class="Fecha"><p th:text="${aviso.fechaPublicacion}">Fecha</p></div>
+    
+    <div class="Comuna"><p th:text="${aviso.comuna}">Comuna</p></div>
+    
+    <div class="sector"><p th:text="${aviso.sector}">Sector</p></div>
+    
+    <div class="cantidad_tipo_edad">
+        <p th:text="|${aviso.cantidad} ${aviso.tipo} ${aviso.edad} ${aviso.unidadMedida}|">Detalle</p>
+    </div>
+    
+  <div class="Foto">
+      <img th:src="@{${aviso.foto}}" 
+          onerror="this.src='/img/mascota_default.png'" 
+          alt="Imagen" style="max-width: 100px;">
+  </div>
+</div>
+    </section>
+  </main>
+
+  <script th:src="@{/js/Fp_navbar.js}"></script>
+</body>
+</html>

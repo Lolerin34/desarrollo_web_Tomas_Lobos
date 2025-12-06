@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Listado de Adopciones — Fundación Patitas</title>
+  <link rel="stylesheet" href="/css/Fp_listado.css" data-th-href="@{/css/Fp_listado.css}">
+  <style>
+      .btn-evaluar {
+          background-color: #4CAF50; color: white; border: none;
+          padding: 5px 10px; cursor: pointer; border-radius: 4px;
+      }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img id="logo" src="/img/Fundacion_patitas.svg" data-th-src="@{/img/Fundacion_patitas.svg}" alt="Logo">
+    <h1>Fundación Patitas</h1>
+    <a href="/" data-th-href="@{/}" class="btn-nav">Página principal</a>
+    <a href="/formulario" data-th-href="@{/formulario}" class="btn-nav">Agregar aviso</a>
+    <a href="/listado" data-th-href="@{/listado}" class="btn-nav active">Listado</a>
+    <a href="/estadisticas" data-th-href="@{/estadisticas}" class="btn-nav">Estadísticas</a>
+  </div>
+
+  <section id="lista-section">
+    <h2>Listado de Avisos de Adopción</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha Publicación</th>
+          <th>Fecha Entrega</th>
+          <th>Comuna</th>
+          <th>Sector</th>
+          <th>Nota Promedio</th> <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fila-aviso" data-th-each="aviso : ${avisos}" data-th-data-id="${aviso.id}">
+          <td data-th-text="${aviso.fechaPublicacion}">2023-01-01</td>
+          <td data-th-text="${aviso.fechaEntrega}">2023-02-01</td>
+          <td data-th-text="${aviso.comuna}">Santiago</td>
+          <td data-th-text="${aviso.sector}">Centro</td>
+          
+          <td id="promedio-0" data-th-id="'promedio-' + ${aviso.id}" data-th-text="${aviso.promedioNotas}">-</td>
+          
+          <td>
+            <a href="/detalle/0" data-th-href="@{/detalle/{id}(id=${aviso.id})}">Ver detalle</a>
+            <button class="btn-evaluar" onclick="evaluarAviso(0)" data-th-onclick="'evaluarAviso(' + ${aviso.id} + ')'">Evaluar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    async function evaluarAviso(idAviso) { /* ... lógica JS ... */ }
+  </script>
+
+  <script src="/js/Fp_navbar.js" data-th-src="@{/js/Fp_navbar.js}"></script>
+</body>
+</html>

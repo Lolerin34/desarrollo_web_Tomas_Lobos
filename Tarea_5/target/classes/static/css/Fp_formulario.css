@@ -1,0 +1,94 @@
+  /*Barra de navegacion*/
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navbar #logo{
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+
+.navbar h1 {
+    font-family: "Fira Code", monospace;
+    margin: .5em;
+    margin-right: auto;
+}
+
+.navbar button{
+  width: 200px;
+  height: 50px;
+  font-family:'Comic-Sans';
+  font-size: 20px;
+}
+
+/*Formulario*/
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.formulario {
+  width: 500px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    color: #333;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.formulario label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.formulario input[type="checkbox"],
+.formulario input[type="radio"]{
+  width: auto;
+  display: inline-block;
+  margin: 0;
+}
+
+
+.contactar-por .contact-method{
+  display: grid;
+  grid-template-columns: 20px 120px 1fr;
+  align-items: center;
+  gap: 0px 5px;
+  margin-bottom: 8px
+}
+
+/* Oculta los elementos con atributo hidden*/
+.contactar-por .contact-id[hidden]{
+  display: none !important;
+}
